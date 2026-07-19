@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="ru" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>СМК — Производственная компания | Резервуары и металлоконструкции</title>
+  <meta name="description" content="Производственная компания СМК: изготовление и монтаж резервуаров и металлоконструкций в Новосибирске. Полный цикл производства, паспорт качества, ГОСТ, гарантия 12 месяцев." />
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Alpine.js -->
+  <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  <!-- Google Fonts: Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+          },
+          colors: {
+            charcoal: {
+              DEFAULT: '#2D2D2D',
+              900: '#1F1F1F',
+              800: '#2D2D2D',
+              700: '#3A3A3A',
+            },
+            amber: {
+              brand: '#F57C00',
+              deep: '#E65100',
+            },
+          },
+          keyframes: {
+            fadeUp: {
+              '0%': { opacity: '0', transform: 'translateY(24px)' },
+              '100%': { opacity: '1', transform: 'translateY(0)' },
+            },
+          },
+          animation: {
+            fadeUp: 'fadeUp 0.7s ease-out forwards',
+          },
+        },
+      },
+    };
+  </script>
+
+  <style>
+    * { box-sizing: border-box; }
+    html, body { max-width: 100%; overflow-x: hidden; }
+    ::selection { background: #F57C00; color: #fff; }
+
+    /* Custom scrollbar */
+    body::-webkit-scrollbar { width: 10px; }
+    body::-webkit-scrollbar-track { background: #1F1F1F; }
+    body::-webkit-scrollbar-thumb { background: #F57C00; border-radius: 6px; }
+
+    /* Reveal-on-scroll */
+    .reveal { opacity: 0; transform: translateY(28px); transition: opacity .7s cubic-bezier(.16,.84,.44,1), transform .7s cubic-bezier(.16,.84,.44,1); }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    .hero-bg {
+      background:
+        linear-gradient(rgba(31,31,31,.86), rgba(31,31,31,.92)),
+        url('https://images.unsplash.com/photo-1565793298595-6a879b1d9492?auto=format&fit=crop&w=1920&q=80');
+      background-size: cover;
+      background-position: center;
+    }
+    .cta-bg {
+      background:
+        linear-gradient(rgba(31,31,31,.90), rgba(31,31,31,.94)),
+        url('https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?auto=format&fit=crop&w=1920&q=80');
+      background-size: cover;
+      background-position: center;
+    }
+    .grid-lines {
+      background-image:
+        linear-gradient(rgba(255,255,255,.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.04) 1px, transparent 1px);
+      background-size: 44px 44px;
+    }
+    .no-scroll { overflow: hidden; }
+  </style>
+</head>
+
+<body class="font-sans text-charcoal-800 bg-white antialiased" x-data="smk()" :class="{ 'no-scroll': mobileMenu }">
+
+  <!-- ============ HEADER ============ -->
+  <header class="fixed top-0 inset-x-0 z-50 bg-charcoal-800/95 backdrop-blur border-b border-white/10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20">
+
+        <!-- Logo -->
+        <a href="#hero" class="flex items-center gap-3 group shrink-0">
+          <span class="flex items-center justify-center w-12 h-12 rounded-lg bg-gradient-to-br from-amber-brand to-amber-deep shadow-lg shadow-amber-brand/20">
+            <!-- Silo/tank icon -->
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" class="w-7 h-7 text-white" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M5 8a7 3 0 0 1 14 0v10a7 3 0 0 1-14 0V8z"/>
+              <path d="M5 8a7 3 0 0 0 14 0"/>
+              <path d="M5 13a7 3 0 0 0 14 0"/>
+            </svg>
+          </span>
+          <span class="leading-tight">
+            <span class="block text-2xl font-900 tracking-wide text-white font-extrabold">СМК</span>
+            <span class="block text-[10px] uppercase tracking-[0.18em] text-gray-400">Производственная компания</span>
+          </span>
+        </a>
+
+        <!-- Desktop nav -->
+        <nav class="hidden lg:flex items-center gap-7 text-sm font-medium text-gray-300">
+          <a href="#hero" class="hover:text-amber-brand transition-colors">О компании</a>
+          <a href="#products" class="hover:text-amber-brand transition-colors">Продукция</a>
+          <a href="#equipment" class="hover:text-amber-brand transition-colors">Оснащение</a>
+          <a href="#advantages" class="hover:text-amber-brand transition-colors">Преимущества</a>
+          <a href="#portfolio" class="hover:text-amber-brand transition-colors">Портфолио</a>
+          <a href="#contacts" class="hover:text-amber-brand transition-colors">Контакты</a>
+        </nav>
+
+        <!-- Right actions -->
+        <div class="hidden md:flex items-center gap-4">
+          <a href="tel:+79133890167" class="flex items-center gap-2 text-white font-semibold hover:text-amber-brand transition-colors">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" class="w-4 h-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            <span class="hidden xl:inline">+7 (913) 389-01-67</span>
+          </a>
+          <a href="#contacts" class="px-5 py-2.5 rounded-lg bg-amber-brand hover:bg-amber-deep text-white font-semibold text-sm shadow-lg shadow-amber-brand/25 transition-colors">
+            Оставить заявку
+          </a>
+        </div>
+
+        <!-- Mobile toggle -->
+        <button @click="mobileMenu = !mobileMenu" class="lg:hidden text-white p-2" aria-label="Меню">
+          <svg x-show="!mobileMenu" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" class="w-7 h-7" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+          <svg x-show="mobileMenu" x-cloak xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" class="w-7 h-7" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile menu -->
+    <div x-show="mobileMenu" x-cloak x-transition.origin.top class="lg:hidden bg-charcoal-900 border-t border-white/10">
+      <nav class="flex flex-col px-4 py-4 gap-1 text-gray-200 font-medium">
+        <a @click="mobileMenu=false" href="#hero" class="py-2.5 px-3 rounded hover:bg-white/5 hover:text-amber-brand transition">О компании</a>
+        <a @click="mobileMenu=false" href="#products" class="py-2.5 px-3 rounded hover:bg-white/5 hover:text-amber-brand transition">Продукция</a>
+        <a @click="mobileMenu=false" href="#equipment" class="py-2.5 px-3 rounded hover:bg-white/5 hover:text-amber-brand transition">Оснащение</a>
+        <a @click="mobileMenu=false" href="#advantages" class="py-2.5 px-3 rounded hover:bg-white/5 hover:text-amber-brand transition">Преимущества</a>
+        <a @click="mobileMenu=false" href="#portfolio" class="py-2.5 px-3 rounded hover:bg-white/5 hover:text-amber-brand transition">Портфолио</a>
+        <a @click="mobileMenu=false" href="#contacts" class="py-2.5 px-3 rounded hover:bg-white/5 hover:text-amber-brand transition">Контакты</a>
+        <a href="tel:+79133890167" class="mt-2 py-2.5 px-3 rounded text-white font-semibold">📞 +7 (913) 389-01-67</a>
+        <a @click="mobileMenu=false" href="#contacts" class="mt-1 py-3 text-center rounded-lg bg-amber-brand text-white font-semibold">Оставить заявку</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ============ HERO ============ -->
+  <section id="hero" class="relative hero-bg text-white pt-32 pb-24 lg:pt-44 lg:pb-32">
+    <div class="absolute inset-0 grid-lines opacity-60 pointer-events-none"></div>
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-4xl">
+        <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-amber-brand/15 border border-amber-brand/30 text-amber-brand text-xs font-semibold uppercase tracking-widest mb-6 animate-fadeUp">
+          <span class="w-2 h-2 rounded-full bg-amber-brand animate-pulse"></span>
+          Резервуаростроение · г. Новосибирск
+        </span>
+        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-[1.08] tracking-tight animate-fadeUp" style="animation-delay:.1s">
+          Производственная компания СМК: <span class="text-amber-brand">Изготовление и монтаж</span> резервуаров и металлоконструкций
+        </h1>
+        <p class="mt-7 text-lg lg:text-xl text-gray-300 leading-relaxed max-w-3xl animate-fadeUp" style="animation-delay:.2s">
+          Наша производственная площадка располагается в городе Новосибирске на территории завода «Тяжстанкогидропресс». С точки зрения логистики наше производство находится практически в центре России и имеет удобную транспортную инфраструктуру.
+        </p>
+        <div class="mt-10 flex flex-col sm:flex-row gap-4 animate-fadeUp" style="animation-delay:.3s">
+          <a href="#products" class="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-lg bg-amber-brand hover:bg-amber-deep text-white font-semibold text-base shadow-xl shadow-amber-brand/25 transition-colors">
+            Смотреть каталог
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" class="w-5 h-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+          <a href="#contacts" class="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-lg border-2 border-white/30 hover:border-amber-brand hover:text-amber-brand text-white font-semibold text-base transition-colors">
+            Связаться с нами
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ EQUIPMENT / CAPACITY STATS ============ -->
+  <section id="equipment" class="relative bg-charcoal-900 text-white py-20 lg:py-24">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-2xl mb-14 reveal">
+        <p class="text-amber-brand font-semibold uppercase tracking-widest text-sm mb-3">Оснащение производства</p>
+        <h2 class="text-3xl lg:text-4xl font-extrabold">Мощности, готовые к масштабированию</h2>
+      </div>
+      <div class="grid gap-6 md:grid-cols-3">
+        <!-- Card 1 -->
+        <div class="reveal group relative rounded-2xl bg-charcoal-800 border border-white/10 p-8 hover:border-amber-brand/50 transition-colors overflow-hidden">
+          <div class="absolute -right-6 -top-6 w-24 h-24 rounded-full bg-amber-brand/10 group-hover:bg-amber-brand/20 transition-colors"></div>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" class="w-10 h-10 text-amber-brand mb-6 relative" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M4 21V8l8-5 8 5v13M9 21v-6h6v6"/></svg>
+          <div class="text-4xl lg:text-5xl font-extrabold text-white relative">3 000 <span class="text-2xl align-top">кв.м.</span></div>
+          <p class="mt-3 text-gray-400 relative">Площадь производства с&nbsp;возможностью увеличения до&nbsp;13&nbsp;000&nbsp;кв.м.</p>
+        </div>
+        <!-- Card 2 -->
+        <div class="reveal group relative rounded-2xl bg-charcoal-800 border border-white/10 p-8 hover:border-amber-brand/50 transition-colors overflow-hidden" style="transition-delay:.08s">
+          <div class="absolute -right-6 -top-6 w-24 h-24 rounded-full bg-amber-brand/10 group-hover:bg-amber-brand/20 transition-colors"></div>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" class="w-10 h-10 text-amber-brand mb-6 relative" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18M7 14l4-4 4 4 5-6"/></svg>
+          <div class="text-4xl lg:text-5xl font-extrabold text-white relative">300 <span class="text-2xl align-top">тонн/мес</span></div>
+          <p class="mt-3 text-gray-400 relative">Объём выпускаемой продукции в&nbsp;месяц.</p>
+        </div>
+        <!-- Card 3 -->
+        <div class="reveal group relative rounded-2xl bg-charcoal-800 border border-white/10 p-8 hover:border-amber-brand/50 transition-colors overflow-hidden" style="transition-delay:.16s">
+          <div class="absolute -right-6 -top-6 w-24 h-24 rounded-full bg-amber-brand/10 group-hover:bg-amber-brand/20 transition-colors"></div>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" class="w-10 h-10 text-amber-brand mb-6 relative" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2M9 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          <div class="text-4xl lg:text-5xl font-extrabold text-white relative">47 <span class="text-2xl align-top">человек</span></div>
+          <p class="mt-3 text-gray-400 relative">Задействовано на&nbsp;производстве, с&nbsp;возможностью увеличения штата до&nbsp;200&nbsp;человек.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PRODUCTS ============ -->
+  <section id="products" class="bg-white py-20 lg:py-28">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-2xl mb-14 reveal">
+        <p class="text-amber-brand font-semibold uppercase tracking-widest text-sm mb-3">Ассортимент выпускаемой продукции</p>
+        <h2 class="text-3xl lg:text-4xl font-extrabold text-charcoal-800">Продукция и услуги полного цикла</h2>
+      </div>
+
+      <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <!-- Product 1 -->
+        <article class="reveal group relative rounded-2xl overflow-hidden border border-slate-200 bg-white shadow-sm hover:shadow-2xl transition-all duration-300">
+          <div class="h-52 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=800&q=80" alt="Резервуары вертикальные" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+          </div>
+          <div class="p-6">
+            <span class="inline-block px-3 py-1 rounded-full bg-amber-brand/10 text-amber-deep text-xs font-semibold mb-3">РВС</span>
+            <h3 class="text-xl font-bold text-charcoal-800">Резервуары вертикальные</h3>
+            <p class="mt-2 text-slate-600">От 100 и до 50 000 тыс. м. куб.</p>
+          </div>
+        </article>
+        <!-- Product 2 -->
+        <article class="reveal group relative rounded-2xl overflow-hidden border border-slate-200 bg-white shadow-sm hover:shadow-2xl transition-all duration-300" style="transition-delay:.06s">
+          <div class="h-52 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1611273426858-450d8e3c9fce?auto=format&fit=crop&w=800&q=80" alt="Резервуары горизонтальные" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+          </div>
+          <div class="p-6">
+            <span class="inline-block px-3 py-1 rounded-full bg-amber-brand/10 text-amber-deep text-xs font-semibold mb-3">РГС</span>
+            <h3 class="text-xl font-bold text-charcoal-800">Резервуары горизонтальные</h3>
+            <p class="mt-2 text-slate-600">От 3 до 100 м. куб., подземные, наземные, любых конфигураций.</p>
+          </div>
+        </article>
+        <!-- Product 3 -->
+        <article class="reveal group relative rounded-2xl overflow-hidden border border-slate-200 bg-white shadow-sm hover:shadow-2xl transition-all duration-300" style="transition-delay:.12s">
+          <div class="h-52 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1531971589569-0d9370cbe1e5?auto=format&fit=crop&w=800&q=80" alt="Эстакады и инженерные базы" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+          </div>
+          <div class="p-6">
+            <span class="inline-block px-3 py-1 rounded-full bg-amber-brand/10 text-amber-deep text-xs font-semibold mb-3">Инфраструктура</span>
+            <h3 class="text-xl font-bold text-charcoal-800">Эстакады и инженерные базы</h3>
+            <p class="mt-2 text-slate-600">Проектирование и изготовление технологических эстакад и баз.</p>
+          </div>
+        </article>
+        <!-- Product 4 -->
+        <article class="reveal group relative rounded-2xl overflow-hidden border border-slate-200 bg-white shadow-sm hover:shadow-2xl transition-all duration-300" style="transition-delay:.06s">
+          <div class="h-52 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=800&q=80" alt="Металлические каркасы зданий" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+          </div>
+          <div class="p-6">
+            <span class="inline-block px-3 py-1 rounded-full bg-amber-brand/10 text-amber-deep text-xs font-semibold mb-3">Металлоконструкции</span>
+            <h3 class="text-xl font-bold text-charcoal-800">Металлические каркасы зданий</h3>
+            <p class="mt-2 text-slate-600">Изготовление металлических каркасов зданий и конструкций.</p>
+          </div>
+        </article>
+        <!-- Product 5 -->
+        <article class="reveal group relative rounded-2xl overflow-hidden border border-slate-200 bg-white shadow-sm hover:shadow-2xl transition-all duration-300" style="transition-delay:.12s">
+          <div class="h-52 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=800&q=80" alt="Монтаж резервуаров" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+          </div>
+          <div class="p-6">
+            <span class="inline-block px-3 py-1 rounded-full bg-amber-brand/10 text-amber-deep text-xs font-semibold mb-3">Монтаж</span>
+            <h3 class="text-xl font-bold text-charcoal-800">Монтаж резервуаров и металлоконструкций</h3>
+            <p class="mt-2 text-slate-600">Строительно-монтажные работы «под ключ» на объекте заказчика.</p>
+          </div>
+        </article>
+        <!-- CTA card -->
+        <article class="reveal group relative rounded-2xl overflow-hidden bg-charcoal-800 text-white p-8 flex flex-col justify-center" style="transition-delay:.18s">
+          <h3 class="text-2xl font-bold">Не нашли нужное решение?</h3>
+          <p class="mt-3 text-gray-400">Изготовим резервуар или металлоконструкцию под ваши требования и чертежи.</p>
+          <a href="#contacts" class="mt-6 inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-amber-brand hover:bg-amber-deep font-semibold w-fit transition-colors">
+            Запросить расчёт
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" class="w-5 h-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ ADVANTAGES ============ -->
+  <section id="advantages" class="bg-[#F8FAFC] py-20 lg:py-28">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-2xl mb-14 reveal">
+        <p class="text-amber-brand font-semibold uppercase tracking-widest text-sm mb-3">Нас выбирают потому что</p>
+        <h2 class="text-3xl lg:text-4xl font-extrabold text-charcoal-800">Преимущества работы с СМК</h2>
+      </div>
+
+      <div class="grid gap-5 md:grid-cols-2">
+        <!-- item -->
+        <div class="reveal flex gap-4 rounded-xl bg-white border border-slate-200 p-6 shadow-sm hover:shadow-lg hover:border-amber-brand/40 transition-all">
+          <span class="shrink-0 flex items-center justify-center w-11 h-11 rounded-lg bg-amber-brand/10 text-amber-deep">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" class="w-6 h-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+          </span>
+          <p class="text-slate-700 leading-relaxed">Весь производственный цикл от&nbsp;проектирования чертежей до&nbsp;выпуска и&nbsp;отгрузки готовой продукции находится на&nbsp;собственном производстве.</p>
+        </div>
+        <div class="reveal flex gap-4 rounded-xl bg-white border border-slate-200 p-6 shadow-sm hover:shadow-lg hover:border-amber-brand/40 transition-all">
+          <span class="shrink-0 flex items-center justify-center w-11 h-11 rounded-lg bg-amber-brand/10 text-amber-deep">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" class="w-6 h-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+          </span>
+          <p class="text-slate-700 leading-relaxed">Качество за&nbsp;счёт специалистов, которые имеют большой опыт в&nbsp;резервуаростроении.</p>
+        </div>
+        <div class="reveal flex gap-4 rounded-xl bg-white border border-slate-200 p-6 shadow-sm hover:shadow-lg hover:border-amber-brand/40 transition-all">
+          <span class="shrink-0 flex items-center justify-center w-11 h-11 rounded-lg bg-amber-brand/10 text-amber-deep">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" class="w-6 h-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+          </span>
+          <p class="text-slate-700 leading-relaxed">Каждому изделию проводится ультразвуковой контроль сварных швов по&nbsp;стандартам ГОСТ и&nbsp;выдаётся паспорт качества.</p>
+        </div>
+        <div class="reveal flex gap-4 rounded-xl bg-white border border-slate-200 p-6 shadow-sm hover:shadow-lg hover:border-amber-brand/40 transition-all">
+          <span class="shrink-0 flex items-center justify-center w-11 h-11 rounded-lg bg-amber-brand/10 text-amber-deep">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" class="w-6 h-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+          </span>
+          <p class="text-slate-700 leading-relaxed">Транспортная развязка позволяет быстро и&nbsp;с&nbsp;минимальными финансовыми потерями осуществить доставку продукции.</p>
+        </div>
+        <div class="reveal flex gap-4 rounded-xl bg-white border border-slate-200 p-6 shadow-sm hover:shadow-lg hover:border-amber-brand/40 transition-all">
+          <span class="shrink-0 flex items-center justify-center w-11 h-11 rounded-lg bg-amber-brand/10 text-amber-deep">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" class="w-6 h-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+          </span>
+          <p class="text-slate-700 leading-relaxed">Производим продукцию точно в&nbsp;срок, что закреплено обязательствами в&nbsp;договоре.</p>
+        </div>
+        <div class="reveal flex gap-4 rounded-xl bg-white border border-slate-200 p-6 shadow-sm hover:shadow-lg hover:border-amber-brand/40 transition-all">
+          <span class="shrink-0 flex items-center justify-center w-11 h-11 rounded-lg bg-amber-brand/10 text-amber-deep">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" class="w-6 h-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+          </span>
+          <p class="text-slate-700 leading-relaxed">Осуществляем строительные и&nbsp;монтажные работы. Являемся участниками СРО.</p>
+        </div>
+        <div class="reveal md:col-span-2 flex gap-4 rounded-xl bg-charcoal-800 text-white p-6 shadow-lg">
+          <span class="shrink-0 flex items-center justify-center w-11 h-11 rounded-lg bg-amber-brand text-white">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" class="w-6 h-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </span>
+          <p class="leading-relaxed text-gray-200"><span class="font-bold text-white">Гарантия 12 месяцев</span> с&nbsp;момента ввода в&nbsp;эксплуатацию изготовленного оборудования.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PORTFOLIO ============ -->
+  <section id="portfolio" class="bg-white py-20 lg:py-28">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-2xl mb-14 reveal">
+        <p class="text-amber-brand font-semibold uppercase tracking-widest text-sm mb-3">Фото реализованных объектов</p>
+        <h2 class="text-3xl lg:text-4xl font-extrabold text-charcoal-800">Портфолио проектов</h2>
+      </div>
+
+      <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <!-- P1 -->
+        <figure class="reveal group relative rounded-2xl overflow-hidden shadow-md h-80">
+          <img src="https://images.unsplash.com/photo-1565793298595-6a879b1d9492?auto=format&fit=crop&w=800&q=80" alt="Резервуар РВС-200" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+          <div class="absolute inset-0 bg-gradient-to-t from-charcoal-900 via-charcoal-900/40 to-transparent"></div>
+          <figcaption class="absolute bottom-0 p-6 text-white">
+            <span class="inline-block px-3 py-1 rounded-full bg-amber-brand text-xs font-semibold mb-3">РВС-200</span>
+            <p class="font-semibold leading-snug">Резервуар противопожарного запаса воды РВС-200. Насосная станция «Разрез Заречный», Кемеровская обл. АО «СУЭК-Кузбасс».</p>
+          </figcaption>
+        </figure>
+        <!-- P2 -->
+        <figure class="reveal group relative rounded-2xl overflow-hidden shadow-md h-80" style="transition-delay:.06s">
+          <img src="https://images.unsplash.com/photo-1513828583688-c52646db42da?auto=format&fit=crop&w=800&q=80" alt="Резервуар РВС-5000" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+          <div class="absolute inset-0 bg-gradient-to-t from-charcoal-900 via-charcoal-900/40 to-transparent"></div>
+          <figcaption class="absolute bottom-0 p-6 text-white">
+            <span class="inline-block px-3 py-1 rounded-full bg-amber-brand text-xs font-semibold mb-3">РВС-5000</span>
+            <p class="font-semibold leading-snug">Резервуар РВС-5000. Нефтехранилище, резервуарный парк аэропорта п. Серышево, Амурская обл.</p>
+          </figcaption>
+        </figure>
+        <!-- P3 -->
+        <figure class="reveal group relative rounded-2xl overflow-hidden shadow-md h-80" style="transition-delay:.12s">
+          <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=800&q=80" alt="Резервуар РГСНп-60" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+          <div class="absolute inset-0 bg-gradient-to-t from-charcoal-900 via-charcoal-900/40 to-transparent"></div>
+          <figcaption class="absolute bottom-0 p-6 text-white">
+            <span class="inline-block px-3 py-1 rounded-full bg-amber-brand text-xs font-semibold mb-3">РГСНп-60</span>
+            <p class="font-semibold leading-snug">Резервуар РГСНп-60 для Куюмбинского месторождения ООО «Славнефть-Красноярскнефтегаз».</p>
+          </figcaption>
+        </figure>
+        <!-- P4 -->
+        <figure class="reveal group relative rounded-2xl overflow-hidden shadow-md h-80">
+          <img src="https://images.unsplash.com/photo-1587293852726-70cdb56c2866?auto=format&fit=crop&w=800&q=80" alt="Резервуар РГСНп-100" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+          <div class="absolute inset-0 bg-gradient-to-t from-charcoal-900 via-charcoal-900/40 to-transparent"></div>
+          <figcaption class="absolute bottom-0 p-6 text-white">
+            <span class="inline-block px-3 py-1 rounded-full bg-amber-brand text-xs font-semibold mb-3">РГСНп-100</span>
+            <p class="font-semibold leading-snug">Резервуар для хранения воды РГСНп-100 для СТП г. Ленинск-Кузнецкий.</p>
+          </figcaption>
+        </figure>
+        <!-- P5 -->
+        <figure class="reveal group relative rounded-2xl overflow-hidden shadow-md h-80" style="transition-delay:.06s">
+          <img src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?auto=format&fit=crop&w=800&q=80" alt="Резервуар РВС-400" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+          <div class="absolute inset-0 bg-gradient-to-t from-charcoal-900 via-charcoal-900/40 to-transparent"></div>
+          <figcaption class="absolute bottom-0 p-6 text-white">
+            <span class="inline-block px-3 py-1 rounded-full bg-amber-brand text-xs font-semibold mb-3">РВС-400</span>
+            <p class="font-semibold leading-snug">Резервуар противопожарного запаса воды РВС-400, «Моховский угольный разрез» АО «СУЭК-Кузбасс».</p>
+          </figcaption>
+        </figure>
+        <!-- P6 -->
+        <figure class="reveal group relative rounded-2xl overflow-hidden shadow-md h-80" style="transition-delay:.12s">
+          <img src="https://images.unsplash.com/photo-1473445730015-841f29a9490b?auto=format&fit=crop&w=800&q=80" alt="Металлоконструкции для РЖД" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+          <div class="absolute inset-0 bg-gradient-to-t from-charcoal-900 via-charcoal-900/40 to-transparent"></div>
+          <figcaption class="absolute bottom-0 p-6 text-white">
+            <span class="inline-block px-3 py-1 rounded-full bg-amber-brand text-xs font-semibold mb-3">РЖД</span>
+            <p class="font-semibold leading-snug">Стойки металлические для опор контактной сети, оголовки, ригели, лестницы для АО «РЖД».</p>
+          </figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ GEOGRAPHY & CLIENTS ============ -->
+  <section id="geography" class="bg-charcoal-900 text-white py-20 lg:py-28">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl mb-14 reveal">
+        <p class="text-amber-brand font-semibold uppercase tracking-widest text-sm mb-3">География заказчиков</p>
+        <h2 class="text-3xl lg:text-4xl font-extrabold mb-5">Поставки по всей России</h2>
+        <p class="text-lg text-gray-300 leading-relaxed">Новосибирск, Новокузнецк, Красноярск, Владивосток, Ленинск-Кузнецкий, Магадан.</p>
+      </div>
+
+      <!-- City chips -->
+      <div class="flex flex-wrap gap-3 mb-14 reveal">
+        <template x-for="city in ['Новосибирск','Новокузнецк','Красноярск','Владивосток','Ленинск-Кузнецкий','Магадан']">
+          <span class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 text-gray-200 text-sm">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" class="w-4 h-4 text-amber-brand" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <span x-text="city"></span>
+          </span>
+        </template>
+      </div>
+
+      <!-- Client logobar -->
+      <p class="text-sm uppercase tracking-widest text-gray-500 mb-6 reveal">Нам доверяют лидеры отрасли</p>
+      <div class="reveal grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
+        <template x-for="client in ['ГАЗПРОМ','РОСНЕФТЬ','ТРАНСНЕФТЬ','СУЭК','СЛАВНЕФТЬ','РЖД']">
+          <div class="flex items-center justify-center h-20 rounded-xl bg-white/5 border border-white/10 hover:border-amber-brand/50 hover:bg-white/10 transition-colors">
+            <span class="text-lg font-extrabold tracking-wider text-gray-200" x-text="client"></span>
+          </div>
+        </template>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CONTACTS FORM ============ -->
+  <section id="contacts" class="cta-bg text-white py-20 lg:py-28">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-2xl mb-14 reveal">
+        <p class="text-amber-brand font-semibold uppercase tracking-widest text-sm mb-3">Контакты</p>
+        <h2 class="text-3xl lg:text-5xl font-extrabold leading-tight">Оставьте заявку — рассчитаем ваш проект</h2>
+        <p class="mt-5 text-lg text-gray-300 leading-relaxed">Заполните форму, и наш инженер свяжется с вами, уточнит детали и подготовит коммерческое предложение. Вся продукция поставляется с паспортом качества и соответствует стандартам ГОСТ.</p>
+      </div>
+
+      <div class="grid lg:grid-cols-5 gap-8 items-start">
+        <!-- Contact info -->
+        <div class="reveal lg:col-span-2 space-y-4">
+          <a href="tel:+79133890167" class="flex items-start gap-4 rounded-2xl bg-white/5 border border-white/10 p-6 hover:border-amber-brand/50 transition-colors">
+            <span class="shrink-0 flex items-center justify-center w-12 h-12 rounded-xl bg-amber-brand/15 text-amber-brand">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" class="w-6 h-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            </span>
+            <span>
+              <span class="block text-sm text-gray-400">Телефон</span>
+              <span class="block text-lg font-semibold text-white">+7 (913) 389-01-67</span>
+            </span>
+          </a>
+          <a href="mailto:urry2004@gmail.com" class="flex items-start gap-4 rounded-2xl bg-white/5 border border-white/10 p-6 hover:border-amber-brand/50 transition-colors">
+            <span class="shrink-0 flex items-center justify-center w-12 h-12 rounded-xl bg-amber-brand/15 text-amber-brand">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" class="w-6 h-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 5L2 7"/></svg>
+            </span>
+            <span>
+              <span class="block text-sm text-gray-400">E-mail</span>
+              <span class="block text-lg font-semibold text-white">urry2004@gmail.com</span>
+            </span>
+          </a>
+          <div class="flex items-start gap-4 rounded-2xl bg-white/5 border border-white/10 p-6">
+            <span class="shrink-0 flex items-center justify-center w-12 h-12 rounded-xl bg-amber-brand/15 text-amber-brand">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" class="w-6 h-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            </span>
+            <span>
+              <span class="block text-sm text-gray-400">Адрес производства</span>
+              <span class="block text-lg font-semibold text-white">г. Новосибирск, ул. Сибиряков-Гвардейцев, 50</span>
+              <span class="block text-sm text-gray-400 mt-1">Завод «Тяжстанкогидропресс»</span>
+            </span>
+          </div>
+        </div>
+
+        <!-- Big form -->
+        <form @submit.prevent="submitForm($event)" class="reveal lg:col-span-3 rounded-3xl bg-white text-charcoal-800 p-8 lg:p-10 shadow-2xl">
+          <h3 class="text-2xl font-bold mb-1">Заявка на расчёт стоимости</h3>
+          <p class="text-slate-500 mb-8">Поля со звёздочкой (<span class="text-amber-deep">*</span>) обязательны для заполнения.</p>
+
+          <div class="grid sm:grid-cols-2 gap-5">
+            <div>
+              <label class="block text-sm font-medium text-slate-600 mb-1.5">Имя <span class="text-amber-deep">*</span></label>
+              <input required type="text" name="name" placeholder="Ваше имя" class="w-full rounded-lg border border-slate-300 px-4 py-3.5 focus:border-amber-brand focus:ring-2 focus:ring-amber-brand/20 outline-none transition" />
+            </div>
+            <div>
+              <label class="block text-sm font-medium text-slate-600 mb-1.5">Телефон <span class="text-amber-deep">*</span></label>
+              <input required type="tel" name="phone" placeholder="+7 (___) ___-__-__" class="w-full rounded-lg border border-slate-300 px-4 py-3.5 focus:border-amber-brand focus:ring-2 focus:ring-amber-brand/20 outline-none transition" />
+            </div>
+            <div>
+              <label class="block text-sm font-medium text-slate-600 mb-1.5">E-mail</label>
+              <input type="email" name="email" placeholder="you@company.ru" class="w-full rounded-lg border border-slate-300 px-4 py-3.5 focus:border-amber-brand focus:ring-2 focus:ring-amber-brand/20 outline-none transition" />
+            </div>
+            <div>
+              <label class="block text-sm font-medium text-slate-600 mb-1.5">Компания</label>
+              <input type="text" name="company" placeholder="Название компании" class="w-full rounded-lg border border-slate-300 px-4 py-3.5 focus:border-amber-brand focus:ring-2 focus:ring-amber-brand/20 outline-none transition" />
+            </div>
+            <div class="sm:col-span-2">
+              <label class="block text-sm font-medium text-slate-600 mb-1.5">Тип продукции</label>
+              <select name="product" class="w-full rounded-lg border border-slate-300 px-4 py-3.5 bg-white focus:border-amber-brand focus:ring-2 focus:ring-amber-brand/20 outline-none transition">
+                <option value="">Выберите тип изделия</option>
+                <option>Резервуары вертикальные (РВС)</option>
+                <option>Резервуары горизонтальные (РГС)</option>
+                <option>Эстакады и инженерные базы</option>
+                <option>Металлические каркасы зданий и конструкций</option>
+                <option>Монтаж резервуаров и металлоконструкций</option>
+                <option>Другое</option>
+              </select>
+            </div>
+            <div class="sm:col-span-2">
+              <label class="block text-sm font-medium text-slate-600 mb-1.5">Сообщение</label>
+              <textarea name="message" rows="5" placeholder="Опишите вашу задачу: объём, конфигурация, сроки, регион доставки" class="w-full rounded-lg border border-slate-300 px-4 py-3.5 focus:border-amber-brand focus:ring-2 focus:ring-amber-brand/20 outline-none transition resize-none"></textarea>
+            </div>
+          </div>
+
+          <button type="submit" class="mt-7 w-full py-4 rounded-lg bg-amber-brand hover:bg-amber-deep text-white font-semibold text-lg shadow-lg shadow-amber-brand/25 transition-colors">
+            Отправить заявку
+          </button>
+          <p x-show="formSent" x-cloak x-transition class="mt-4 text-center text-green-600 font-medium">✓ Спасибо! Ваша заявка отправлена — мы свяжемся с вами в ближайшее время.</p>
+          <p class="mt-4 text-xs text-slate-400 text-center">Нажимая кнопку, вы соглашаетесь на обработку персональных данных.</p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="bg-charcoal-800 text-gray-300 pt-20 pb-10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid gap-12 lg:grid-cols-4 md:grid-cols-2">
+        <!-- Brand -->
+        <div class="lg:col-span-1">
+          <a href="#hero" class="flex items-center gap-3 mb-5">
+            <span class="flex items-center justify-center w-11 h-11 rounded-lg bg-gradient-to-br from-amber-brand to-amber-deep">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" class="w-6 h-6 text-white" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 8a7 3 0 0 1 14 0v10a7 3 0 0 1-14 0V8z"/><path d="M5 8a7 3 0 0 0 14 0"/><path d="M5 13a7 3 0 0 0 14 0"/></svg>
+            </span>
+            <span class="leading-tight">
+              <span class="block text-xl font-extrabold text-white">СМК</span>
+              <span class="block text-[10px] uppercase tracking-[0.18em] text-gray-500">Производственная компания</span>
+            </span>
+          </a>
+          <p class="text-sm text-gray-400 leading-relaxed">Изготовление и монтаж резервуаров и металлоконструкций полного цикла. г. Новосибирск.</p>
+        </div>
+
+        <!-- Nav -->
+        <div>
+          <h4 class="text-white font-semibold mb-4">Навигация</h4>
+          <ul class="space-y-2.5 text-sm">
+            <li><a href="#hero" class="hover:text-amber-brand transition-colors">О компании</a></li>
+            <li><a href="#products" class="hover:text-amber-brand transition-colors">Продукция</a></li>
+            <li><a href="#equipment" class="hover:text-amber-brand transition-colors">Оснащение</a></li>
+            <li><a href="#advantages" class="hover:text-amber-brand transition-colors">Преимущества</a></li>
+            <li><a href="#portfolio" class="hover:text-amber-brand transition-colors">Портфолио</a></li>
+          </ul>
+        </div>
+
+        <!-- Contacts -->
+        <div>
+          <h4 class="text-white font-semibold mb-4">Контакты</h4>
+          <ul class="space-y-4 text-sm">
+            <li class="flex gap-3">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" class="w-5 h-5 text-amber-brand shrink-0" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              <span>г. Новосибирск, ул. Сибиряков-Гвардейцев, 50.</span>
+            </li>
+            <li class="flex gap-3">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" class="w-5 h-5 text-amber-brand shrink-0" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              <a href="tel:+79133890167" class="hover:text-amber-brand transition-colors font-medium">+7 (913) 389-01-67</a>
+            </li>
+            <li class="flex gap-3">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" class="w-5 h-5 text-amber-brand shrink-0" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 5L2 7"/></svg>
+              <a href="mailto:urry2004@gmail.com" class="hover:text-amber-brand transition-colors">urry2004@gmail.com</a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- CTA + SRO -->
+        <div>
+          <h4 class="text-white font-semibold mb-4">Работаем официально</h4>
+          <div class="flex items-start gap-3 rounded-xl bg-white/5 border border-white/10 p-4 mb-5">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" class="w-6 h-6 text-amber-brand shrink-0" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            <p class="text-sm text-gray-300">Являемся участниками <span class="font-semibold text-white">СРО</span>. Выдаём паспорт качества и соблюдаем стандарты ГОСТ.</p>
+          </div>
+          <a href="tel:+79133890167" class="block text-center w-full py-3 rounded-lg bg-amber-brand hover:bg-amber-deep text-white font-semibold transition-colors">Позвонить нам</a>
+        </div>
+      </div>
+
+      <div class="mt-14 pt-8 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-gray-500">
+        <p>© 2026 Производственная компания «СМК». Все права защищены.</p>
+        <p>г. Новосибирск, завод «Тяжстанкогидропресс»</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ============ BACK TO TOP ============ -->
+  <button @click="scrollTop()" x-show="scrolled" x-cloak x-transition
+    class="fixed bottom-6 right-6 z-40 flex items-center justify-center w-12 h-12 rounded-full bg-amber-brand hover:bg-amber-deep text-white shadow-xl shadow-amber-brand/30 transition-colors"
+    aria-label="Наверх">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" class="w-6 h-6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m18 15-6-6-6 6"/></svg>
+  </button>
+
+  <!-- ============ SCRIPTS ============ -->
+  <style>[x-cloak]{display:none!important;}</style>
+  <script>
+    function smk() {
+      return {
+        mobileMenu: false,
+        scrolled: false,
+        formSent: false,
+        init() {
+          // scroll listener for back-to-top
+          window.addEventListener('scroll', () => { this.scrolled = window.scrollY > 500; });
+          // reveal-on-scroll
+          const io = new IntersectionObserver((entries) => {
+            entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } });
+          }, { threshold: 0.12 });
+          this.$nextTick(() => document.querySelectorAll('.reveal').forEach(el => io.observe(el)));
+          // esc closes mobile menu
+          window.addEventListener('keydown', (ev) => { if (ev.key === 'Escape') { this.mobileMenu = false; } });
+        },
+        scrollTop() { window.scrollTo({ top: 0, behavior: 'smooth' }); },
+        submitForm(e) {
+          // Front-end only demo handler — no external requests
+          this.formSent = true;
+          e.target.reset();
+          setTimeout(() => { this.formSent = false; }, 5000);
+        },
+      };
+    }
+  </script>
+</body>
+</html>
