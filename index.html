@@ -215,81 +215,105 @@
   </section>
 
   <!-- ============ PRODUCTS ============ -->
-  <section id="products" class="bg-white py-20 lg:py-28">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="max-w-2xl mb-14 reveal">
-        <p class="text-amber-brand font-semibold uppercase tracking-widest text-sm mb-3">Ассортимент выпускаемой продукции</p>
-        <h2 class="text-3xl lg:text-4xl font-extrabold text-charcoal-800">Продукция и услуги полного цикла</h2>
-      </div>
+  <section id="products" class="bg-white">
 
-      <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        <!-- Product 1 -->
-        <article class="reveal group relative rounded-2xl overflow-hidden border border-slate-200 bg-white shadow-sm hover:shadow-2xl transition-all duration-300">
-          <div class="h-52 overflow-hidden">
-            <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=800&q=80" alt="Резервуары вертикальные" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+    <!-- Full-bleed production hall photo -->
+    <div class="relative w-full h-[46vh] sm:h-[56vh] lg:h-[72vh] overflow-hidden bg-charcoal-900">
+      <img src="hall.jpg" alt="Производственный цех СМК — изготовление резервуаров" class="absolute inset-0 w-full h-full object-cover" />
+      <div class="absolute inset-0 bg-gradient-to-t from-charcoal-900 via-charcoal-900/20 to-charcoal-900/40"></div>
+      <div class="absolute inset-0 bg-gradient-to-r from-amber-deep/25 via-transparent to-transparent mix-blend-overlay"></div>
+
+      <div class="absolute inset-x-0 bottom-0">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-10 lg:pb-16">
+          <p class="text-amber-brand font-semibold uppercase tracking-[0.2em] text-xs sm:text-sm mb-4">Производственная площадка · Новосибирск</p>
+          <h2 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-white leading-[1.05] max-w-4xl">
+            Ассортимент выпускаемой продукции
+          </h2>
+        </div>
+      </div>
+    </div>
+
+    <!-- Product line-up -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-24">
+      <div class="grid gap-x-10 gap-y-12 sm:grid-cols-2 lg:grid-cols-3">
+
+        <!-- 1 — Резервуары вертикальные -->
+        <div class="reveal flex gap-5">
+          <span class="shrink-0 flex items-center justify-center w-16 h-16 rounded-2xl bg-amber-brand/10 text-amber-deep">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" class="w-9 h-9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <ellipse cx="12" cy="5" rx="6" ry="2.4"/><path d="M6 5v14c0 1.3 2.7 2.4 6 2.4s6-1.1 6-2.4V5"/><path d="M6 12c0 1.3 2.7 2.4 6 2.4s6-1.1 6-2.4"/>
+            </svg>
+          </span>
+          <div>
+            <h3 class="text-xl lg:text-2xl font-bold text-charcoal-800 leading-snug">Резервуары вертикальные</h3>
+            <p class="mt-2 text-lg text-slate-600">от 100 и до 50 000 тыс. м. куб.</p>
           </div>
-          <div class="p-6">
-            <span class="inline-block px-3 py-1 rounded-full bg-amber-brand/10 text-amber-deep text-xs font-semibold mb-3">РВС</span>
-            <h3 class="text-xl font-bold text-charcoal-800">Резервуары вертикальные</h3>
-            <p class="mt-2 text-slate-600">От 100 и до 50 000 тыс. м. куб.</p>
+        </div>
+
+        <!-- 2 — Резервуары горизонтальные -->
+        <div class="reveal flex gap-5" style="transition-delay:.06s">
+          <span class="shrink-0 flex items-center justify-center w-16 h-16 rounded-2xl bg-amber-brand/10 text-amber-deep">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" class="w-9 h-9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <ellipse cx="5" cy="12" rx="2.4" ry="6"/><path d="M5 6h14c1.3 0 2.4 2.7 2.4 6s-1.1 6-2.4 6H5"/><path d="M12 6c1.3 0 2.4 2.7 2.4 6s-1.1 6-2.4 6"/>
+            </svg>
+          </span>
+          <div>
+            <h3 class="text-xl lg:text-2xl font-bold text-charcoal-800 leading-snug">Резервуары горизонтальные</h3>
+            <p class="mt-2 text-lg text-slate-600">от 3 до 100 м. куб.</p>
+            <p class="mt-1 text-base text-slate-500">подземные, наземные, любых конфигураций</p>
           </div>
-        </article>
-        <!-- Product 2 -->
-        <article class="reveal group relative rounded-2xl overflow-hidden border border-slate-200 bg-white shadow-sm hover:shadow-2xl transition-all duration-300" style="transition-delay:.06s">
-          <div class="h-52 overflow-hidden">
-            <img src="https://images.unsplash.com/photo-1611273426858-450d8e3c9fce?auto=format&fit=crop&w=800&q=80" alt="Резервуары горизонтальные" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+        </div>
+
+        <!-- 3 — Эстакады -->
+        <div class="reveal flex gap-5" style="transition-delay:.12s">
+          <span class="shrink-0 flex items-center justify-center w-16 h-16 rounded-2xl bg-amber-brand/10 text-amber-deep">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" class="w-9 h-9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 2v6"/><path d="M7 21 12 8l5 13"/><path d="M8.6 17h6.8"/><path d="M9.8 13h4.4"/><path d="M3 21h18"/>
+            </svg>
+          </span>
+          <div>
+            <h3 class="text-xl lg:text-2xl font-bold text-charcoal-800 leading-snug">Эстакады<br class="hidden sm:block" /> и инженерные базы</h3>
           </div>
-          <div class="p-6">
-            <span class="inline-block px-3 py-1 rounded-full bg-amber-brand/10 text-amber-deep text-xs font-semibold mb-3">РГС</span>
-            <h3 class="text-xl font-bold text-charcoal-800">Резервуары горизонтальные</h3>
-            <p class="mt-2 text-slate-600">От 3 до 100 м. куб., подземные, наземные, любых конфигураций.</p>
+        </div>
+
+        <!-- 4 — Каркасы зданий -->
+        <div class="reveal flex gap-5" style="transition-delay:.06s">
+          <span class="shrink-0 flex items-center justify-center w-16 h-16 rounded-2xl bg-amber-brand/10 text-amber-deep">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" class="w-9 h-9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M2 11 12 4l10 7"/><path d="M4 11v9h16v-9"/><path d="M9 20v-5h6v5"/><path d="M4 15h16"/>
+            </svg>
+          </span>
+          <div>
+            <h3 class="text-xl lg:text-2xl font-bold text-charcoal-800 leading-snug">Изготовление металлических каркасов зданий и конструкций</h3>
           </div>
-        </article>
-        <!-- Product 3 -->
-        <article class="reveal group relative rounded-2xl overflow-hidden border border-slate-200 bg-white shadow-sm hover:shadow-2xl transition-all duration-300" style="transition-delay:.12s">
-          <div class="h-52 overflow-hidden">
-            <img src="https://images.unsplash.com/photo-1531971589569-0d9370cbe1e5?auto=format&fit=crop&w=800&q=80" alt="Эстакады и инженерные базы" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+        </div>
+
+        <!-- 5 — Монтаж -->
+        <div class="reveal flex gap-5" style="transition-delay:.12s">
+          <span class="shrink-0 flex items-center justify-center w-16 h-16 rounded-2xl bg-amber-brand/10 text-amber-deep">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" class="w-9 h-9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M2 17h11v-5H2z"/><path d="M13 14h4l3 3v3h-7z"/><circle cx="6" cy="20" r="1.8"/><circle cx="17" cy="20" r="1.8"/><path d="M4 12V9h7"/>
+            </svg>
+          </span>
+          <div>
+            <h3 class="text-xl lg:text-2xl font-bold text-charcoal-800 leading-snug">Монтаж резервуаров и металлоконструкций</h3>
           </div>
-          <div class="p-6">
-            <span class="inline-block px-3 py-1 rounded-full bg-amber-brand/10 text-amber-deep text-xs font-semibold mb-3">Инфраструктура</span>
-            <h3 class="text-xl font-bold text-charcoal-800">Эстакады и инженерные базы</h3>
-            <p class="mt-2 text-slate-600">Проектирование и изготовление технологических эстакад и баз.</p>
-          </div>
-        </article>
-        <!-- Product 4 -->
-        <article class="reveal group relative rounded-2xl overflow-hidden border border-slate-200 bg-white shadow-sm hover:shadow-2xl transition-all duration-300" style="transition-delay:.06s">
-          <div class="h-52 overflow-hidden">
-            <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=800&q=80" alt="Металлические каркасы зданий" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
-          </div>
-          <div class="p-6">
-            <span class="inline-block px-3 py-1 rounded-full bg-amber-brand/10 text-amber-deep text-xs font-semibold mb-3">Металлоконструкции</span>
-            <h3 class="text-xl font-bold text-charcoal-800">Металлические каркасы зданий</h3>
-            <p class="mt-2 text-slate-600">Изготовление металлических каркасов зданий и конструкций.</p>
-          </div>
-        </article>
-        <!-- Product 5 -->
-        <article class="reveal group relative rounded-2xl overflow-hidden border border-slate-200 bg-white shadow-sm hover:shadow-2xl transition-all duration-300" style="transition-delay:.12s">
-          <div class="h-52 overflow-hidden">
-            <img src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=800&q=80" alt="Монтаж резервуаров" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
-          </div>
-          <div class="p-6">
-            <span class="inline-block px-3 py-1 rounded-full bg-amber-brand/10 text-amber-deep text-xs font-semibold mb-3">Монтаж</span>
-            <h3 class="text-xl font-bold text-charcoal-800">Монтаж резервуаров и металлоконструкций</h3>
-            <p class="mt-2 text-slate-600">Строительно-монтажные работы «под ключ» на объекте заказчика.</p>
-          </div>
-        </article>
-        <!-- CTA card -->
-        <article class="reveal group relative rounded-2xl overflow-hidden bg-charcoal-800 text-white p-8 flex flex-col justify-center" style="transition-delay:.18s">
+        </div>
+
+        <!-- CTA -->
+        <div class="reveal flex flex-col justify-center rounded-2xl bg-charcoal-800 text-white p-8" style="transition-delay:.18s">
           <h3 class="text-2xl font-bold">Не нашли нужное решение?</h3>
           <p class="mt-3 text-gray-400">Изготовим резервуар или металлоконструкцию под ваши требования и чертежи.</p>
           <a href="#contacts" class="mt-6 inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-amber-brand hover:bg-amber-deep font-semibold w-fit transition-colors">
             Запросить расчёт
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" class="w-5 h-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
           </a>
-        </article>
+        </div>
+
       </div>
     </div>
   </section>
+
 
   <!-- ============ ADVANTAGES ============ -->
   <section id="advantages" class="bg-[#F8FAFC] py-20 lg:py-28">
