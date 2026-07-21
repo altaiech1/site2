@@ -104,13 +104,13 @@
             </svg>
           </span>
           <span class="leading-tight">
-            <span class="block text-xl sm:text-2xl tracking-wide text-white font-extrabold">СТРОЙМЕТКОМ</span>
-            <span class="block text-[10px] uppercase tracking-[0.18em] text-gray-400">Производственная компания</span>
+            <span class="block text-lg xl:text-xl tracking-wide text-white font-extrabold whitespace-nowrap">СТРОЙМЕТКОМ</span>
+            <span class="block text-[9px] uppercase tracking-[0.14em] text-gray-400 whitespace-nowrap">Производственная компания</span>
           </span>
         </a>
 
         <!-- Desktop nav -->
-        <nav class="hidden lg:flex items-center gap-7 text-sm font-medium text-gray-300">
+        <nav class="hidden xl:flex items-center gap-5 2xl:gap-7 text-sm font-medium text-gray-300 whitespace-nowrap">
           <a href="#hero" class="hover:text-amber-brand transition-colors">О компании</a>
           <a href="#products" class="hover:text-amber-brand transition-colors">Продукция</a>
           <a href="#equipment" class="hover:text-amber-brand transition-colors">Оснащение</a>
@@ -120,18 +120,18 @@
         </nav>
 
         <!-- Right actions -->
-        <div class="hidden md:flex items-center gap-4">
+        <div class="hidden xl:flex items-center gap-3 2xl:gap-4 shrink-0">
           <a href="tel:+79133890167" class="flex items-center gap-2 text-white font-semibold hover:text-amber-brand transition-colors">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" class="w-4 h-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-            <span class="hidden xl:inline">+7 (913) 389-01-67</span>
+            <span class="hidden 2xl:inline whitespace-nowrap">+7 (913) 389-01-67</span>
           </a>
-          <a href="#contacts" class="px-5 py-2.5 rounded-lg bg-amber-brand hover:bg-amber-deep text-white font-semibold text-sm shadow-lg shadow-amber-brand/25 transition-colors">
+          <a href="#contacts" class="px-4 xl:px-5 py-2.5 rounded-lg bg-amber-brand hover:bg-amber-deep text-white font-semibold text-sm shadow-lg shadow-amber-brand/25 transition-colors whitespace-nowrap">
             Связаться с нами
           </a>
         </div>
 
         <!-- Mobile toggle -->
-        <button @click="mobileMenu = !mobileMenu" class="lg:hidden text-white p-2" aria-label="Меню">
+        <button @click="mobileMenu = !mobileMenu" class="xl:hidden text-white p-2" aria-label="Меню">
           <svg x-show="!mobileMenu" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" class="w-7 h-7" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
           <svg x-show="mobileMenu" x-cloak xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" class="w-7 h-7" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg>
         </button>
@@ -139,7 +139,7 @@
     </div>
 
     <!-- Mobile menu -->
-    <div x-show="mobileMenu" x-cloak x-transition.origin.top class="lg:hidden bg-charcoal-900 border-t border-white/10">
+    <div x-show="mobileMenu" x-cloak x-transition.origin.top class="xl:hidden bg-charcoal-900 border-t border-white/10">
       <nav class="flex flex-col px-4 py-4 gap-1 text-gray-200 font-medium">
         <a @click="mobileMenu=false" href="#hero" class="py-2.5 px-3 rounded hover:bg-white/5 hover:text-amber-brand transition">О компании</a>
         <a @click="mobileMenu=false" href="#products" class="py-2.5 px-3 rounded hover:bg-white/5 hover:text-amber-brand transition">Продукция</a>
@@ -168,7 +168,29 @@
         <p class="mt-7 text-lg lg:text-xl text-gray-300 leading-relaxed max-w-3xl animate-fadeUp" style="animation-delay:.2s">
           Наша производственная площадка располагается в городе Новосибирске на территории завода «Тяжстанкогидропресс». С точки зрения логистики наше производство находится практически в центре России и имеет удобную транспортную инфраструктуру.
         </p>
-        <div class="mt-10 flex flex-col sm:flex-row gap-4 animate-fadeUp" style="animation-delay:.3s">
+        <!-- Характеристики производства -->
+        <div class="mt-8 flex flex-col sm:flex-row gap-4 sm:gap-5 animate-fadeUp" style="animation-delay:.25s">
+          <div class="flex items-start gap-4 rounded-2xl bg-white/5 border border-white/10 px-6 py-5 backdrop-blur-sm">
+            <span class="shrink-0 flex items-center justify-center w-11 h-11 rounded-xl bg-amber-brand/15 text-amber-brand">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" class="w-6 h-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18"/><path d="m8 6 4-3 4 3"/><path d="m8 18 4 3 4-3"/><path d="M3 3h4"/><path d="M3 21h4"/></svg>
+            </span>
+            <span>
+              <span class="block text-2xl font-extrabold text-white leading-none">24 метра</span>
+              <span class="block mt-1.5 text-sm text-gray-400 leading-snug">Высота потолков до головки рельса<br class="hidden sm:block" /> мостового крана</span>
+            </span>
+          </div>
+          <div class="flex items-start gap-4 rounded-2xl bg-white/5 border border-white/10 px-6 py-5 backdrop-blur-sm">
+            <span class="shrink-0 flex items-center justify-center w-11 h-11 rounded-xl bg-amber-brand/15 text-amber-brand">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" class="w-6 h-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 5h16"/><path d="M6 5v3"/><path d="M16 5v6"/><path d="M13 11h6l-3 5z"/><path d="M6 8h6"/><path d="M9 8v11"/><path d="M6 19h6"/></svg>
+            </span>
+            <span>
+              <span class="block text-2xl font-extrabold text-white leading-none">50 тонн</span>
+              <span class="block mt-1.5 text-sm text-gray-400 leading-snug">Грузоподъёмность<br class="hidden sm:block" /> мостовых кранов</span>
+            </span>
+          </div>
+        </div>
+
+        <div class="mt-9 flex flex-col sm:flex-row gap-4 animate-fadeUp" style="animation-delay:.35s">
           <a href="#products" class="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-lg bg-amber-brand hover:bg-amber-deep text-white font-semibold text-base shadow-xl shadow-amber-brand/25 transition-colors">
             Смотреть каталог
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" class="w-5 h-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
@@ -376,7 +398,7 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="max-w-2xl mb-14 reveal">
         <p class="text-amber-brand font-semibold uppercase tracking-widest text-sm mb-3">Фото реализованных объектов</p>
-        <h2 class="text-3xl lg:text-4xl font-extrabold text-charcoal-800">Портфолио проектов</h2>
+        <h2 class="text-3xl lg:text-4xl font-extrabold text-charcoal-800">Портфель заказов</h2>
       </div>
 
       <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
@@ -488,7 +510,7 @@
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" class="w-8 h-8 text-white" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
           </span>
           <span class="text-sm uppercase tracking-widest text-white/70 mb-2">Телефон</span>
-          <span class="text-3xl lg:text-4xl font-extrabold text-white leading-tight break-words">+7 (913)<br />389-01-67</span>
+          <span class="text-[1.75rem] sm:text-3xl xl:text-[2rem] font-extrabold text-white leading-tight whitespace-nowrap">+7 (913) 389-01-67</span>
           <span class="mt-auto pt-6 inline-flex items-center gap-2 text-white font-semibold">
             Позвонить
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" class="w-5 h-5 group-hover:translate-x-1 transition-transform" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
@@ -501,7 +523,7 @@
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" class="w-8 h-8 text-amber-brand" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 5L2 7"/></svg>
           </span>
           <span class="text-sm uppercase tracking-widest text-gray-400 mb-2">E-mail</span>
-          <span class="text-2xl lg:text-3xl font-extrabold text-white leading-tight break-all">urry2004@gmail.com</span>
+          <span class="text-[1.35rem] sm:text-2xl xl:text-[1.6rem] font-extrabold text-white leading-tight whitespace-nowrap">urry2004@gmail.com</span>
           <span class="mt-auto pt-6 inline-flex items-center gap-2 text-amber-brand font-semibold">
             Написать письмо
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" class="w-5 h-5 group-hover:translate-x-1 transition-transform" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
